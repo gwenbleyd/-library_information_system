@@ -1,0 +1,12 @@
+﻿  Author.cpp
+  Book.cpp
+  Bookkeeping.cpp
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(42,7): warning C4101: command: неиспользованная локальная переменная
+  CourseWork.cpp
+  Date.cpp
+Bookkeeping.obj : error LNK2001: неразрешенный внешний символ _mysql_real_connect@32.
+Bookkeeping.obj : error LNK2001: неразрешенный внешний символ _mysql_close@4.
+Bookkeeping.obj : error LNK2001: неразрешенный внешний символ _mysql_query@8.
+Bookkeeping.obj : error LNK2001: неразрешенный внешний символ _mysql_init@4.
+Bookkeeping.obj : error LNK2001: неразрешенный внешний символ _mysql_error@4.
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\Release\CourseWork.exe : fatal error LNK1120: неразрешенных внешних элементов: 5
