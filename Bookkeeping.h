@@ -26,10 +26,10 @@ public:
 	std::string getUsername();
 	unsigned int getPort();
 	std::string getSchema();
-	void addBook(std::string, std::string, std::string, std::string, std::string, int, int, int, nana::date::value, nana::date::value);
-	void addReader(std::string, std::string, std::string, nana::date::value, std::string, std::string, unsigned int, unsigned int);
-	void addLibrarian(std::string, std::string, std::string, std::string, std::string, unsigned int, unsigned int);
-	void giveBook();
+	void addBook(std::string&, std::string&, std::string&, std::string&, std::string&, int, int, int, nana::date::value&, nana::date::value&);
+	void addReader(std::string&, std::string&, std::string&, nana::date::value&, std::string&, std::string&, unsigned int, unsigned int);
+	void addLibrarian(std::string&, std::string&, std::string&, std::string&, std::string&, unsigned int, unsigned int);
+	void giveBook(unsigned int, unsigned int, std::string&);
 	void viewBooks();
 	void close();
 	~Bookkeeping();
