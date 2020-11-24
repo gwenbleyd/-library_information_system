@@ -347,51 +347,77 @@ void menu::viewBook(Bookkeeping &db){
 
 		nana::button btn_quit(viewWindow, "Quit");
 		nana::button btn_act(viewWindow, "Execute");
-		//btn_quit.size(nana::size{ 220, 15 });
-		//btn_quit.move(nana::rectangle(210, 320, 150, 30));
 
 		nana::combox box_search(viewWindow);
-
-		nana::textbox text_search(viewWindow);
-
-		text_search.tip_string("Enter what you are looking for: ").multi_lines(false);
-
 		box_search.push_back("Search books by author:");
 		box_search.push_back("Search for a book by title");
 		box_search.push_back("Show all books:");
 		box_search.push_back("Search books by country");
 		box_search.option(2);
+		nana::combox box_country(viewWindow);
+		std::vector<std::string> countries = { "Austria", "Belgium", "United Kingdom", "Hungary", "Germany", "Greece", "Denmark", "Spain", "Italy", "Netherlands", "Norway", "Poland", "Portugal", "Russia",
+			"Ukraine", "Finland", "France", "Croatia", "Czech Republic", "Switzerland", "Sweden", "USA", "Turkey", "China", "Japan", "Canada" };
+		for (auto x : countries) {
+			box_country.push_back(x);
+		}
+		box_country.option(0);
 
-		lb.append_header(L"Title");
-		lb.append_header(L"Publication year");
-		lb.append_header(L"Publisher");
-		lb.append_header(L"Amount");
-		lb.append_header(L"Author");
+		nana::textbox text_search(viewWindow);
+
+		nana::place plc(viewWindow);
+		plc.div("<><weight=90% vertical<><weight=90% vertical <vertical gap=20 listbox> <weight=25 gap=25 text> <weight=25 gap=25 buttons> ><>><>");
+		plc.field("listbox") << lb;
+		plc.field("buttons") << btn_act << btn_quit;
+		plc.field("text") << box_search << text_search;
+		plc.collocate();
+		box_country.move(nana::rectangle{ text_search.pos().x, text_search.pos().y, 241, 25 });
+		box_country.hide();
+
+		box_search.events().selected([&box_search, &box_country, &text_search] {
+			if (box_search.option() == 3) {
+				text_search.hide();
+				box_country.show();
+			}
+			else {
+				box_country.hide();
+				text_search.show();
+			}
+			});
+
+		text_search.tip_string("Enter what you are looking for: ").multi_lines(false);
+
+		lb.append_header("Title");
+		lb.append_header("Publication year");
+		lb.append_header("Publisher");
+		lb.append_header("Amount");
+		lb.append_header("Author");
 
 		nana::listbox::cat_proxy cat = lb.at(0);
 		lb.auto_draw(false);
 		cat = db.viewBooks(lb);
 		lb.auto_draw(true);
 
-		btn_act.events().click([&db, &lb, &cat, &text_search, &box_search, &viewWindow] {
-			std::string text;
-			text_search.getline(0, text);
-			cat = lb.at(0);
-			lb.auto_draw(false);
-			cat = db.search(lb, text, box_search.option());
-			lb.auto_draw(true);
+		btn_act.events().click([&db, &lb, &cat, &text_search, &box_search, &box_country,&viewWindow] {
+			if (box_search.option() == 3) {
+				std::string country;
+				country = box_country.text(box_country.option());
+				cat = lb.at(0);
+				lb.auto_draw(false);
+				cat = db.search(lb, country, box_search.option());
+				lb.auto_draw(true);
+			}else {
+				std::string text;
+				text_search.getline(0, text);
+				cat = lb.at(0);
+				lb.auto_draw(false);
+				cat = db.search(lb, text, box_search.option());
+				lb.auto_draw(true);
+			}
 			});
 
 		btn_quit.events().click([&viewWindow] {
 			viewWindow.close();
 			});
-
-		nana::place plc(viewWindow);
-		plc.div("<><weight=90% vertical<><weight=90% vertical <vertical gap=20 listbox> <weight=25 gap=25 text> <weight=25 gap=25 buttons> ><>><>");
-		plc.field("text") << box_search << text_search;
-		plc.field("listbox") << lb;
-		plc.field("buttons") << btn_act << btn_quit;
-		plc.collocate();
 
 		viewWindow.show();
 		nana::exec();

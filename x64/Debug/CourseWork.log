@@ -1,8 +1,8 @@
 ﻿  Bookkeeping.cpp
-E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(119,25): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
-E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(127,29): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
-E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(162,25): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
-E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(204,28): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
-E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(244,28): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
-E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(406): warning C4715: Bookkeeping::search: значение возвращается не при всех путях выполнения
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(114,25): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(122,29): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(153,25): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(193,28): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(233,28): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\Bookkeeping.cpp(396): warning C4715: Bookkeeping::search: значение возвращается не при всех путях выполнения
   CourseWork.vcxproj -> E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\x64\Debug\CourseWork.exe

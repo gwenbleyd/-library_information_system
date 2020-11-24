@@ -117,7 +117,7 @@ void Bookkeeping::addBook(std::string& titleBook, std::string& ph, std::string& 
 				date.equiv(date_author);
 				Author author(nameAuthor, surnameAuthor, countryAuthor, date);
 				std::string command_author = "INSERT INTO `bookkeeping`.`authors` (`firstName`, `lastName`, `country`, `DOB`) VALUES('";
-				command_author += author.getName() + "', '" + author.getSurname() + "', '" + author.getCountry().c_str() + "', '" + author.getDate() + "');";
+				command_author += author.getName() + "', '" + author.getSurname() + "', '" + author.getCountry() + "', '" + author.getDate() + "');";
 				if (!mysql_query(conn, command_author.c_str())) {
 					unsigned int author_id = mysql_insert_id(conn);
 					std::string command = "INSERT INTO `bookkeeping`.`authors_books` (`book_id`, `author_Id`) VALUES ('";
@@ -260,7 +260,7 @@ void Bookkeeping::actBook(unsigned int reader, unsigned int librarian, std::stri
 	command_librarian += std::to_string(librarian) + "; ";
 	if (!mysql_query(conn, command_librarian.c_str())) {
 		if (atoi(result(conn).c_str())) {
-			std::string command_reader = "SELECT COUNT(`libraryCardNumber`) FROM `bookkeeping`.`readers` WHERE `libraryCardNumber` = ";
+			std::string command_reader = "SELECT `libraryCardNumber` FROM `bookkeeping`.`readers` WHERE `libraryCardNumber` = ";
 			command_reader += std::to_string(reader) + "; ";
 			if (!mysql_query(conn, command_reader.c_str())) {
 				int book_id = atoi(result(conn).c_str());
@@ -283,8 +283,9 @@ void Bookkeeping::actBook(unsigned int reader, unsigned int librarian, std::stri
 										std::string command_update = "UPDATE `bookkeeping`.`stock` SET `quantity` = `quantity` + 1 WHERE `book_id`= ";
 										command_update += book + "; ";
 										if (!mysql_query(conn, command_update.c_str())) {
-											std::string command = "SELECT COUNT(`logbook`.`reader_id`) FROM logbook WHERE `logbook`.`reader_id` = '" + std::to_string(reader) + "' and `logbook`.`book_id` = '" 
-												+ std::to_string(book_id) + "';";
+											std::string command = "SELECT COUNT(`reader_id`) FROM logbook WHERE `reader_id` = '" + std::to_string(reader) + "' and `book_id` = '" 
+												+ book + "';";
+											std::cout << command;
 											mysql_query(conn, command.c_str());
 											if (atoi(result(conn).c_str())) {
 												std::string command_logbook = "DELETE FROM `bookkeeping`.`logbook` WHERE(`book_id` = '";
