@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# XML files
+*.vcxproj
+
 # Compiled Object files
 *.slo
 *.lo
