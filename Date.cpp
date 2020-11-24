@@ -13,8 +13,6 @@ std::string Date::equiv() {
     year = right->tm_year + 1900;
     mouth = right->tm_mon + 1;
     day = right->tm_mday;
-    delete[] right;
-    right = nullptr;
     return getDate();
 }
 

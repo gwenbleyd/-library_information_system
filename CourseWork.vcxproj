@@ -152,6 +152,7 @@
     <ClCompile Include="CourseWork.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Librarian.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="Reader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="Bookkeeping.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Librarian.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="Reader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

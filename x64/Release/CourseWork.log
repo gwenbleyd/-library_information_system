@@ -1,0 +1,11 @@
+﻿  Adress.cpp
+  Author.cpp
+  Book.cpp
+  Bookkeeping.cpp
+  CourseWork.cpp
+  Date.cpp
+  Librarian.cpp
+  menu.cpp
+E:\university\5_semester\Course_project\My_variation\my_cw\CourseWork\CourseWork\menu.cpp(342,1): warning C4267: аргумент: преобразование из "size_t" в "unsigned short"; возможна потеря данных
+  Reader.cpp
+nana.lib(programming_interface.cpp.obj) : fatal error LNK1112: тип компьютера модуля "x86" конфликтует с типом целевого компьютера "x64"

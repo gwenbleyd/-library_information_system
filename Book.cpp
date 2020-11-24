@@ -1,15 +1,11 @@
 #include "Book.h"
 
-Book::Book(unsigned int _id, std::string _title, std::string _ph, Date _date){
-    id = _id;
+Book::Book(std::string _title, std::string _ph, Date _date){
     title = std::move(_title);
     publishing_house = std::move(_ph);
     date = std::move(_date);
 }
 
-unsigned int Book::getId(){
-    return id;
-}
 
 std::string Book::getTitle()
 {

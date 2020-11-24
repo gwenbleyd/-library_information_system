@@ -5,11 +5,13 @@
 #include <ctime>
 
 struct Date {
+	Date() = default;
 	unsigned int year;
 	unsigned int mouth;
 	unsigned int day;
 	void equiv(nana::date::value&);
 	std::string equiv();
 	std::string getDate();
+	~Date() = default;
 };
 
